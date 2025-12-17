@@ -1,5 +1,6 @@
 = Duiding bij Intro Performance-Aware Programming
 Stefan Courteaux <stefan.courteaux@hogent.be>
+:toc:
 //:source-highlighter: highlight.js
 2025-12-16
 
@@ -28,7 +29,6 @@ Deze vraag heeft een veel minder zweverig antwoord. Hoewel grotendeels ongekend 
 
 Hoewel de opleiding zeer praktisch ingericht wordt, hopen we ook enige ruimte te creëren voor verdergezet denken. In contact komen met verschillende standpunten en meningen om daaruit je eigen synthese te maken en je wereldbeeld bij te sturen, is waardevol. Dit kan verwarrend of zelfs stresserend zijn. Dat is ok.  
 
-<<< 
 == Probleemstelling
 
 [quote]
@@ -36,7 +36,8 @@ Hardware wordt sneller, software wordt trager.
 
 Martijn schetst een heel aantal voorbeelden van applicaties die veel groter en/of veel trager zijn dan je zou verwachten. Waarom is dit zo? Is dat ok? _It depends._
 
-*De boodschap is dat we als softwareontwikkelaars moeten stilstaan bij de vraag.*
+Doorgaans focust men in bedrijven op veiligheid > juistheid & stabiliteit > onderhoudbaarheid > ... > performance. 
+*De boodschap is hier toch performance in acht te nemen, hoewel het vaak achteraan de prio's bengelt.*
 
 Is het een groot probleem dat de https://www.recycleapp.be/intro[Recycle!] app 180 MB groot is?:: Meh, misschien niet. Maar als elke app op je smartphone 10-100x groter is dan werkelijk nodig is, heeft dit de tastbare impact dat elk toestel gewoonweg meer opslagruimte nodig heeft. Deze chips komen niet uit de lucht gevallen. Ze worden gebouwd uit petroleumproducten en mineralen die veelal op destructieve en onethische manier ontgonnen worden. Ze vinden uiteindelijk hun weg naar de 1.500.000.000 smartphones die elk jaar verkocht worden. _Oops._
 
@@ -44,14 +45,15 @@ Is het een groot probleem dat Teams zo traag start en Windows Explorer trager is
 
 Wat kan jij eraan doen?:: Op tijd eens stilstaan bij wat je aan het bouwen bent. Bekijk welke systemen of componenten performance bottlenecks (kunnen) vormen en doe er wat aan, binnen de mate van het mogelijke, ongeacht de programmeertaal. Ga je performance winsten van x180.000 boeken, zoals in de slides? De kans is klein, maar de verbetering hoeft natuurlijk niet zo groot te zijn om een tastbare impact te hebben. Als je een page load kan reduceren van 1000ms naar 500ms is dat tastbaar voor de gebruiker en op schaal absoluut relevant naar energieverbruik.
 
-<<<
 == CSharp
 
 Toon eens iets concreet, zeg! _Ja, okay._
 
-Op Github vind je een quick-and-dirty solution die een paar voorbeelden bevat. Je kan daar rustig mee prutsen. Het spreekt voor zich dat er nog tal van mogelijke topics zijn.
+In dit Github repo vind je een quick-and-dirty solution die een paar voorbeelden bevat. Je kan daar rustig mee prutsen. Het spreekt voor zich dat tal van mogelijke topics hierin niet aan bod komen.
 
-De solution bevat geen detaillistische _benchmarks_. De performance winsten zijn zo sprekend dat een rudimentaire `Stopwatch` tijdmeting genoeg is om het punt te illustreren.
+De solution bevat geen detaillistische _benchmarks_. De performance winsten zijn zo sprekend dat een rudimentaire `Stopwatch` tijdmeting genoeg is om het punt te illustreren. 
+
+De metingen hieronder werden op een Apple M3 Pro chip uitgevoerd. Alle testen, behalve de file cache, werd met een set van 10.000.000 items gedaan.
 
 === List vs Dictionary
 Een klassieker. Als je in een niet-verwaarloosbaar volume data wil zoeken naar elementen op basis van een unieke sleutel, steek ze dan gewoon in een datastructuur die daarvoor bedoeld is.
