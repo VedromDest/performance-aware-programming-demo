@@ -29,7 +29,6 @@ Deze vraag heeft een veel minder zweverig antwoord. Hoewel grotendeels ongekend 
 
 Hoewel de opleiding zeer praktisch ingericht wordt, hopen we ook enige ruimte te creëren voor verdergezet denken. In contact komen met verschillende standpunten en meningen om daaruit je eigen synthese te maken en je wereldbeeld bij te sturen, is waardevol. Dit kan verwarrend of zelfs stresserend zijn. Dat is ok.  
 
-<<< 
 == Probleemstelling
 
 [quote]
@@ -37,7 +36,8 @@ Hardware wordt sneller, software wordt trager.
 
 Martijn schetst een heel aantal voorbeelden van applicaties die veel groter en/of veel trager zijn dan je zou verwachten. Waarom is dit zo? Is dat ok? _It depends._
 
-*De boodschap is dat we als softwareontwikkelaars nu en dan eens moeten afwegen of de performance van onze applicatie wel acceptabel is.*
+Doorgaans focust men in bedrijven op veiligheid > juistheid & stabiliteit > onderhoudbaarheid > ... > performance. 
+*De boodschap is hier toch performance in acht te nemene, hoewel het vaak achteraan de prio's bengelt.*
 
 Is het een groot probleem dat de https://www.recycleapp.be/intro[Recycle!] app 180 MB groot is?:: Meh, misschien niet. Maar als elke app op je smartphone 10-100x groter is dan werkelijk nodig is, heeft dit de tastbare impact dat elk toestel gewoonweg meer opslagruimte nodig heeft. Deze chips komen niet uit de lucht gevallen. Ze worden gebouwd uit petroleumproducten en mineralen die veelal op destructieve en onethische manier ontgonnen worden. Ze vinden uiteindelijk hun weg naar de 1.500.000.000 smartphones die elk jaar verkocht worden. _Oops._
 
@@ -45,7 +45,6 @@ Is het een groot probleem dat Teams zo traag start en Windows Explorer trager is
 
 Wat kan jij eraan doen?:: Op tijd eens stilstaan bij wat je aan het bouwen bent. Bekijk welke systemen of componenten performance bottlenecks (kunnen) vormen en doe er wat aan, binnen de mate van het mogelijke, ongeacht de programmeertaal. Ga je performance winsten van x180.000 boeken, zoals in de slides? De kans is klein, maar de verbetering hoeft natuurlijk niet zo groot te zijn om een tastbare impact te hebben. Als je een page load kan reduceren van 1000ms naar 500ms is dat tastbaar voor de gebruiker en op schaal absoluut relevant naar energieverbruik.
 
-<<<
 == CSharp
 
 Toon eens iets concreet, zeg! _Ja, okay._
