@@ -36,7 +36,7 @@ Hardware wordt sneller, software wordt trager.
 
 Martijn schetst een heel aantal voorbeelden van applicaties die veel groter en/of veel trager zijn dan je zou verwachten. Waarom is dit zo? Is dat ok? _It depends._
 
-*De boodschap is dat we als softwareontwikkelaars beter eens bij stilstaan wanneer we applicaties bouwen.*
+*De boodschap is dat we als softwareontwikkelaars nu en dan eens moeten afwegen of de performance van onze applicatie wel acceptabel is.*
 
 Is het een groot probleem dat de https://www.recycleapp.be/intro[Recycle!] app 180 MB groot is?:: Meh, misschien niet. Maar als elke app op je smartphone 10-100x groter is dan werkelijk nodig is, heeft dit de tastbare impact dat elk toestel gewoonweg meer opslagruimte nodig heeft. Deze chips komen niet uit de lucht gevallen. Ze worden gebouwd uit petroleumproducten en mineralen die veelal op destructieve en onethische manier ontgonnen worden. Ze vinden uiteindelijk hun weg naar de 1.500.000.000 smartphones die elk jaar verkocht worden. _Oops._
 
