@@ -5,7 +5,7 @@ Stefan Courteaux <stefan.courteaux@hogent.be>
 2025-12-16
 
 == Situering
-Op woensdag 3 december 2025 gaf Martijn Courteaux (PhD) de guest talk "Introductie tot Performance-Aware Programming". 
+Op woensdag 3 december 2025 gaf dr. ir. Martijn Courteaux de guest talk "Introductie tot Performance-Aware Programming". 
 
 https://hogent-my.sharepoint.com/:v:/g/personal/stefan_courteaux_hogent_be/IQDbkQhDXCEWR6JGdJhsXlv5AXZYwcxYyH-gJJBKt0R5lx0?e=FrgYg5&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D[Een opname is beschikbaar] voor HOGENT studenten (dank aan David Breckx).
 
