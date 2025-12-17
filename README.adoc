@@ -51,7 +51,9 @@ Toon eens iets concreet, zeg! _Ja, okay._
 
 In dit Github repo vind je een quick-and-dirty solution die een paar voorbeelden bevat. Je kan daar rustig mee prutsen. Het spreekt voor zich dat tal van mogelijke topics hierin niet aan bod komen.
 
-De solution bevat geen detaillistische _benchmarks_. De performance winsten zijn zo sprekend dat een rudimentaire `Stopwatch` tijdmeting genoeg is om het punt te illustreren.
+De solution bevat geen detaillistische _benchmarks_. De performance winsten zijn zo sprekend dat een rudimentaire `Stopwatch` tijdmeting genoeg is om het punt te illustreren. 
+
+De metingen hieronder werden op een Apple M3 Pro chip uitgevoerd. Alle testen, behalve de file cache, werd met een set van 10.000.000 items gedaan.
 
 === List vs Dictionary
 Een klassieker. Als je in een niet-verwaarloosbaar volume data wil zoeken naar elementen op basis van een unieke sleutel, steek ze dan gewoon in een datastructuur die daarvoor bedoeld is.
