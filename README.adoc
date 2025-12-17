@@ -49,7 +49,7 @@ Wat kan jij eraan doen?:: Op tijd eens stilstaan bij wat je aan het bouwen bent.
 
 Toon eens iets concreet, zeg! _Ja, okay._
 
-Op Github vind je een quick-and-dirty solution die een paar voorbeelden bevat. Je kan daar rustig mee prutsen. Het spreekt voor zich dat er nog tal van mogelijke topics zijn.
+In dit Github repo vind je een quick-and-dirty solution die een paar voorbeelden bevat. Je kan daar rustig mee prutsen. Het spreekt voor zich dat tal van mogelijke topics hierin niet aan bod komen.
 
 De solution bevat geen detaillistische _benchmarks_. De performance winsten zijn zo sprekend dat een rudimentaire `Stopwatch` tijdmeting genoeg is om het punt te illustreren.
 
