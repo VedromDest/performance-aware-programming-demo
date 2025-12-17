@@ -1,0 +1,93 @@
+= Duiding bij Intro Performance-Aware Programming
+Stefan Courteaux <stefan.courteaux@hogent.be>
+//:source-highlighter: highlight.js
+2025-12-16
+
+== Situering
+Op woensdag 3 december 2025 gaf Martijn Courteaux (PhD) de guest talk "Introductie tot Performance-Aware Programming". 
+
+https://hogent-my.sharepoint.com/:v:/g/personal/stefan_courteaux_hogent_be/IQDbkQhDXCEWR6JGdJhsXlv5AXZYwcxYyH-gJJBKt0R5lx0?e=FrgYg5&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D[Een opname is beschikbaar] voor HOGENT studenten (dank aan David Breckx).
+
+Tijdens de talk neemt Martijn duidelijke standpunten in. Deze staan deels haaks op hoe men in de opleiding, en bij uitbreiding in het onderwijs, leert programmeren.
+
+Dit document dient als bijkomende duiding voor studenten van het Graduaat Programmeren.
+
+== OOP(aniek)
+
+De meest recurrente vraag van studenten volgend op deze talk is *"Is OO-Programmeren dan slecht?"*
+
+De wereld is niet zwart-wit. "Goed", "Slecht", "Juist", "Fout",... zijn geen absolute begrippen. Het zijn waardeoordelen die enkel betekenis dragen in een context van criteria, zoals maatschappelijke normen en waarden of een duidelijk afgebakende probleemstelling met een helder doel. 
+
+Een *foute mop* kan goed getimed, en dus *wenselijk*, zijn. Een *juiste uitspraak* kan slecht getimed, en dus *onwenselijk*, zijn. Context is alles.
+
+Is OO-Programmeren _slecht_?:: 
+Als je de laatste druppel performance uit hardware wil persen, word je gedwongen het OO-paradigma los te laten. Het heeft een inherente runtime _overhead_. Wanneer performance niet de hoogste prioriteit heeft, zullen we deze overhead accepteren. Conclusie? _It Depends_.
+
+Is de inhoud van de opleiding wel _juist_ gekozen?::
+Deze vraag heeft een veel minder zweverig antwoord. Hoewel grotendeels ongekend bij studenten, bestaat er enorm veel context voor dit onderwerp. Het doel van de opleiding is ontwikkelaars opleiden die compatibel zijn met de arbeidsmarkt. Dit wordt gegarandeerd door een heel aantal formele en informele processen, procedures en metingen. Conclusie? _Ja._
+
+Hoewel de opleiding zeer praktisch ingericht wordt, hopen we ook enige ruimte te creëren voor verdergezet denken. In contact komen met verschillende standpunten en meningen om daaruit je eigen synthese te maken en je wereldbeeld bij te sturen, is waardevol. Dit kan verwarrend of zelfs stresserend zijn. Dat is ok.  
+
+<<< 
+== Probleemstelling
+
+[quote]
+Hardware wordt sneller, software wordt trager.
+
+Martijn schetst een heel aantal voorbeelden van applicaties die veel groter en/of veel trager zijn dan je zou verwachten. Waarom is dit zo? Is dat ok? _It depends._
+
+*De boodschap is dat we als softwareontwikkelaars moeten stilstaan bij de vraag.*
+
+Is het een groot probleem dat de https://www.recycleapp.be/intro[Recycle!] app 180 MB groot is?:: Meh, misschien niet. Maar als elke app op je smartphone 10-100x groter is dan werkelijk nodig is, heeft dit de tastbare impact dat elk toestel gewoonweg meer opslagruimte nodig heeft. Deze chips komen niet uit de lucht gevallen. Ze worden gebouwd uit petroleumproducten en mineralen die veelal op destructieve en onethische manier ontgonnen worden. Ze vinden uiteindelijk hun weg naar de 1.500.000.000 smartphones die elk jaar verkocht worden. _Oops._
+
+Is het een groot probleem dat Teams zo traag start en Windows Explorer trager is dan 5 jaar geleden?:: Ja. Mocht een handvol mensen bij Microsoft een beetje beter bij de les zijn, zouden de meer dan 1 miljard mensen die deze producten gebruiken niet elke dag meermaals hinder ondervinden. Als je dit kwantificeert, gaat het over honderden jaren aan mensenleven en rekentijd per dag. _Insane_.
+
+Wat kan jij eraan doen?:: Op tijd eens stilstaan bij wat je aan het bouwen bent. Bekijk welke systemen of componenten performance bottlenecks (kunnen) vormen en doe er wat aan, binnen de mate van het mogelijke, ongeacht de programmeertaal. Ga je performance winsten van x180.000 boeken, zoals in de slides? De kans is klein, maar de verbetering hoeft natuurlijk niet zo groot te zijn om een tastbare impact te hebben. Als je een page load kan reduceren van 1000ms naar 500ms is dat tastbaar voor de gebruiker en op schaal absoluut relevant naar energieverbruik.
+
+<<<
+== CSharp
+
+Toon eens iets concreet, zeg! _Ja, okay._
+
+Op Github vind je een quick-and-dirty solution die een paar voorbeelden bevat. Je kan daar rustig mee prutsen. Het spreekt voor zich dat er nog tal van mogelijke topics zijn.
+
+De solution bevat geen detaillistische _benchmarks_. De performance winsten zijn zo sprekend dat een rudimentaire `Stopwatch` tijdmeting genoeg is om het punt te illustreren.
+
+=== List vs Dictionary
+Een klassieker. Als je in een niet-verwaarloosbaar volume data wil zoeken naar elementen op basis van een unieke sleutel, steek ze dan gewoon in een datastructuur die daarvoor bedoeld is.
+
+Timings:: 27ms -> 0ms (neigt naar oneindig veel sneller)
+
+=== Sequentieel vs Parallel
+Als je dezelfde operatie op een grote set data wil toepassen, en de resultaten onderling geen relatie met elkaar hebben, kunnen we ze (in de mate van het mogelijke) tegelijk laten lopen.
+
+Timings:: 4000ms -> 1000ms (4x sneller)
+
+=== Concatenation vs StringBuilder
+Wanneer je in .Net strings concateneert, heeft dit de overhead nieuwe allocaties en objecten te maken. Klein beetje kan geen kwaad. Doe je dat met een massa string data, dan wordt het een ramp. Gebruik `StringBuilder` wanneer je uitgebreide string concatenaties doet.
+
+Timings:: loopt vast -> 190ms (bruikbaar ipv onbruikbaar)
+
+=== Substring vs Span
+Wanneer je delen van een string wil overnemen, kan je al snel geneigd zijn `Substring()` te gebruiken. Ook dit heeft overhead... die ok is...tot het niet meer ok is. Je kan `ReadOnlySpan` gebruiken om (een deel van) een reeds bestaand blok geheugen te mappen en op die manier toegang krijgen tot delen van een string. De overhead hiervan ligt lager.
+
+Timings:: 400ms -> 100ms (4x sneller)
+
+=== Array van Class vs Array van Struct 
+Een array van objecten is een lijst van pointers. Wanneer je de array doorloopt, moet je de pointers _travelen_ om de objecten te vinden die de info bevatten die je wil gebruiken. Structs zijn geen reference types, wel value types. Een array van structs bevat bijgevolg geen pointers, maar effectieve data. De pointer traveling overhead valt weg.
+
+Timings:: 40ms -> 20ms (2x sneller)
+
+=== File Caching
+Nog een klassieker, zeker gezien in de les. Wanneer veelgebruikte resources, zoals `.sql` bestanden in een .Net project vaak gebruikt worden, is het interessant deze in geheugen te houden ipv ze telkens opnieuw te lezen.
+
+Timings:: 150ms -> 0ms (neigt naar oneindig vel sneller)
+
+=== SIMD
+Ja, mensen, ook een van de hardcore performance items uit de presentatie is beschikbaar in .Net. SIMD (Single Instruction Multiple Data) laat je toe 1 instructie naar een CPU te sturen en deze toe te passen op vectoren (~ lijstjes) van data ipv enkelvoudige waarden. Dit is parallellisatie van het rekenwerk voor een instructie binnen de processor.
+
+Timings:: 200ms -> 100ms (2x sneller)
+
+== Conclusie
+
+Als absolute performance primeert, moet je heel anders gaan programmeren. Toch kan je met conventionele technologie en technieken de applicaties waaraan je dagdagelijks werkt vaak significant sneller maken. Je hoeft de perfectie niet na te streven, maar alle beetjes helpen!
