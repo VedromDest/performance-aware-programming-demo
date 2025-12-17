@@ -20,7 +20,7 @@ ClassvsStruct.Run(studentenList);
 PrintTitel("File caching");
 FileCaching.Run(10000);
 PrintTitel("SIMD (Single Instruction Multiple Data)");
-SIMD.Run(100_000_000);
+SIMD.Run(count);
 
 
 void PrintTitel(string title)
